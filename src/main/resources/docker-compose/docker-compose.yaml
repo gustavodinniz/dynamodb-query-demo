@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  localstack:
+    container_name: dynamoquery-demo
+    image: localstack/localstack:3.1.0
+    ports:
+      - "4566-4599:4566-4599"
+    environment:
+      - SERVICES=dynamodb
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - ./localstack-script:/etc/localstack/init/ready.d
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: >
+      bash -c "chmod +x /etc/localstack/init/ready.d/*.sh && 
+               /usr/bin/docker-entrypoint.sh"

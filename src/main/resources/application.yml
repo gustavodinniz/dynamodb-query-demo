@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: DynamoDB-Query-Demo
+
+amazon:
+  aws:
+    accesskey: access_key
+    secretkey: secret_key
+    region: sa-east-1
+  dynamodb:
+    endpoint: http://localhost:4566
+
